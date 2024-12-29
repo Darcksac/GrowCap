@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Recomienda y Gana con GrowCap!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        :root {
+            --bg-shape-color: linear-gradient(120deg, #343A4F, #0F1620);
+            --lightblue: #912392;
+            --darkblue: #440657;
+            --text-color: #D5E1EF;
+        }
+
+        p {
+            color: #bbaeba;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(90deg, #414850, #131720);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .wrapper {
+            width: 400px;
+            border-radius: 40px;
+            background-image: var(--bg-shape-color);
+            overflow: hidden;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background-image: linear-gradient(176deg, var(--lightblue), var(--darkblue));
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .content {
+            padding: 24px;
+            line-height: 1.6;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .content p {
+            margin-bottom: 12px;
+        }
+
+        .steps {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .steps li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .steps li span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--lightblue);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .footer {
+            background-image: var(--bg-shape-color);
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+        }
+
+        .footer button {
+            background-image: linear-gradient(85deg, #5b056a, #ab10b1);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-top: 15px; 
+        }
+
+        .footer button:hover {
+            transform: scale(1.1);
+        }
+
+        .footer img {
+            margin-top: 5px;
+            width: 60px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>¡Recomienda y Gana con GrowCap!</h1>
+        </div>
+        <div class="content">
+            <h2>¿Quieres hacer crecer tu saldo fácilmente? ¡Es tu momento!</h2>
+            <p>Invita a tus amigos, colegas o familiares a unirse a GrowCap, y por cada persona que realice una inversión inicial mínima de $10,000 con un plazo de al menos 6 meses, te llevas <strong>$500 adicionales</strong> en tu saldo disponible dentro de la plataforma.</p>
+            <ul class="steps">
+                <li><span>1</span>Comparte tu recomendación.</li>
+                <li><span>2</span>Ellos invierten, tú ganas.</li>
+                <li><span>3</span>¡Ambos hacen crecer sus oportunidades!</li>
+            </ul>
+            <p><strong>No esperes más, convierte tus contactos en ganancias.</strong></p>
+            <p>El éxito también se comparte.</p>
+        </div>
+        <div class="footer">
+            <img src="https://clientes.growcap.mx/img/logo_ventana_inicio.png" alt="Logo de GrowCap">
+            <p>GrowCap: Invierte, Recomienda y Crece.</p>
+            <button>¡Invitar Ahora!</button>
+        </div>
+    </div>
+</body>
+</html>
