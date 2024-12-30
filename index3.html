@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>¡Recomienda y Gana con GrowCap!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+
+        body {
+            background: #c3a6d3;
+            background-image: linear-gradient(to right, #f7f7f7, #ffffff);
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Arial', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            box-shadow: 0 15px 30px 1px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 5em auto;
+            height: 450px;
+            width: 750px;
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-details {
+            position: relative;
+            text-align: left;
+            padding: 30px;
+            width: 50%;
+            font-family: 'Arial'; 
+        }
+
+        #container .product-details h1 {
+            font-family: 'Arial';
+            font-size: 35px;
+            color: #ffffff;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        #container .product-details h1:before {
+            position: absolute;
+            content: '';
+            right: 0;
+            top: 0;
+            transform: translate(25px, -15px);
+            font-family: 'Arial';
+            background: #000000;
+            border-radius: 5px;
+            font-size: 14px;
+            padding: 5px;
+            color: white;
+            margin: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .product-details p {
+            font-family: 'Arial', serif;
+            font-size: 18px;
+            color: #ffffff;
+            margin-top: 20px;
+            line-height: 1.5;
+            animation: fadeInText 1s ease-in-out;
+        }
+
+        .product-details img {
+            width: 10%; 
+            height: auto;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .control {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeInButton 1.5s ease-out;
+        }
+
+        @keyframes fadeInButton {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            transform: translateY(0);
+            transition: 0.3s linear;
+            background: #9b59b6;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-family: 'Arial';
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-6px);
+            background: #7e2d95;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            position: relative;
+            width: 50%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease-out;
+            border-radius: 10px;
+        }
+
+        .info {
+            background: rgba(0, 0, 0, 0.7);
+            font-family: 'Arial';
+            transition: all 0.3s ease-out;
+            transform: translateX(-100%);
+            position: absolute;
+            line-height: 1.8;
+            text-align: left;
+            font-size: 70%;
+            cursor: no-drop;
+            color: #fff;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .product-image:hover .info {
+            transform: translateX(0);
+        }
+
+        .info h2 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .info ul li {
+            font-size: 0.9em;
+            color: #fff;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            transition: transform 0.3s ease;
+        }
+
+        .info ul li:hover {
+            transform: translateX(50px) scale(1.2);
+        }
+
+        .product-image:hover img {
+            transform: scale(1.1);
+        }
+
+        
+        .product-details img {
+            width: 60%; 
+            height: auto;
+        }
+
+        /* From Uiverse.io by tarantino421 */ 
+.box {
+  --clr-shadow__border: #d9a1ff;
+  --clr-text: #F6F4EB;
+  --clr-space: #120e1e;
+  --clr-space-gr: #271950;
+  --clr-star: #E9F8F9;
+  --size: 3rem;
+  position: relative;
+  outline: 1px solid var(--clr-shadow__border);
+}
+
+.button {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  background: transparent;
+  padding: calc(var(--size) / 3) var(--size);
+  border: none;
+  cursor: pointer;
+  color: var(--clr-text);
+  text-shadow: 2px 0px var(--clr-shadow__border), 0px 2px var(--clr-shadow__border),
+  -2px 0px var(--clr-shadow__border), 0px -2px var(--clr-shadow__border);
+}
+
+.space {
+  width: 100%;
+  height: 100%;
+  bottom: 0%;
+  gap: 1.5rem;
+  transition: 0.5s ease-in-out;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  background: linear-gradient( 160deg, var(--clr-space), var(--clr-space-gr));
+}
+
+.box:hover .space {
+  opacity: 1;
+}
+
+.star {
+  height: 4rem;
+  width: 0.3rem;
+  transition: 0.5s;
+  border-radius: 50px;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  position: relative;
+  background-color: var(--clr-star);
+  animation: space-animation calc(0.1s * var(--i)) linear infinite;
+}
+
+@keyframes space-animation {
+  0% {
+    transform: rotate(-30deg) translateY(calc(-52% * var(--i)));
+  }
+
+  100% {
+    transform: rotate(-30deg) translateY(calc(52% * var(--i)));
+  }
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="product-details">
+            <div class="box">
+                <A href="index.html">
+                <button class="button">RECOMENDAR</button></A>
+                <div class="space">
+                  <span style="--i: 31" class="star"></span>
+                  <span style="--i: 12" class="star"></span>
+                  <span style="--i: 57" class="star"></span>
+                  <span style="--i: 93" class="star"></span>
+                  <span style="--i: 23" class="star"></span>
+                  <span style="--i: 70" class="star"></span>
+                  <span style="--i: 6" class="star"></span>
+                </div>
+
+              </div>
+              <DIV>
+              <img src="imgs/GRO.png" alt="GrowCap">
+            </DIV>
+        </div>
+
+        <div class="product-image">
+            <img src="imgs/1.png" alt="GrowCap">
+
+            <div class="info">
+                <h2>ES MUY FÁCIL</h2>
+                <ul>
+                    <p>¿Quieres hacer crecer tu saldo fácilmente? ¡Es tu momento!</p>
+                    <p>Invita a tus amigos, colegas o familiares a unirse a GrowCap, y por cada persona que realice una inversión inicial mínima de $10,000 con un plazo de al menos 6 meses, te llevas $500 adicionales en tu saldo disponible dentro de la plataforma.</p>
+                    <p>Es muy fácil:</p>
+                    <ul>
+                        <li>Comparte tu recomendación.</li>
+                        <li>Ellos invierten, tú ganas.</li>
+                        <li>¡Ambos hacen crecer sus oportunidades!</li>
+                    </ul>
+                    <p>No esperes más, ¡convierte tus contactos en ganancias! El éxito también se comparte.</p>
+                    <p><strong> Invierte, Recomienda y Crece.</strong></p>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

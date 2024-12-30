@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Recomienda y Gana con GrowCap!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .button,
+        .input,
+        .select,
+        .textarea {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .modal-container {
+            max-height: 400px;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @media (max-width: 600px) {
+            .modal-container {
+                width: 90%;
+            }
+        }
+
+        .modal-container-header {
+            padding: 20px 32px;
+            background-color: #6A1B9A;
+            color: white;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .modal-container-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+            font-size: 1.125rem;
+            margin-top: 10px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .modal-container-body {
+            padding: 24px 32px 51px;
+            overflow-y: auto;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .rtf h1,
+        .rtf h2,
+        .rtf h3,
+        .rtf h4,
+        .rtf h5,
+        .rtf h6 {
+            font-weight: 700;
+            color: #6A1B9A;
+        }
+
+        .rtf h1 {
+            font-size: 1.5rem;
+            line-height: 1.125;
+        }
+
+        .rtf h2 {
+            font-size: 1.25rem;
+            line-height: 1.25;
+        }
+
+        .rtf h3 {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .rtf > * + * {
+            margin-top: 1em;
+        }
+
+        .rtf > * + :is(h1, h2, h3) {
+            margin-top: 2em;
+        }
+
+        .rtf > :is(h1, h2, h3) + * {
+            margin-top: 0.75em;
+        }
+
+        .rtf ul,
+        .rtf ol {
+            margin-left: 20px;
+            list-style-position: inside;
+        }
+
+        .rtf ol {
+            list-style: numeric;
+        }
+
+        .rtf ul {
+            list-style: disc;
+        }
+
+        .modal-container-footer {
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            gap: 12px;
+            background-color: #6A1B9A;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            text-transform: uppercase;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .modal-container-footer button {
+            border-radius: 8px;
+            padding: 10px 20px;
+            background-color: #6A1B9A;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .modal-container-footer button:hover {
+            background-color: #4a0433;
+        }
+
+        .button.is-ghost {
+            background-color: transparent;
+            color: #ddd;
+        }
+
+        .button.is-ghost:hover {
+            background-color: #dfdad7;
+        }
+
+        .button.is-primary {
+            background-color: #6A1B9A;
+            color: #fff;
+        }
+
+        .button.is-primary:hover {
+            background-color: #000000;
+        }
+
+        .icon-button {
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.15s ease;
+        }
+
+        .icon-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon-button:hover,
+        .icon-button:focus {
+            background-color: #dfdad7;
+        }
+
+    
+        .modal-container img {
+            width: 100px; 
+            height: auto; 
+            object-fit: contain; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 00); 
+            margin-bottom: 15px; 
+        }
+
+        .modal-container-header .icon-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <article class="modal-container">
+            <header class="modal-container-header">
+                <!-- Aquí puedes agregar tu logo -->
+                
+                <span class="modal-container-title">
+                    RECOMIENDA Y GANA
+                </span>
+                <button class="icon-button">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" fill="currentColor"></path>
+                    </svg>
+                </button>
+            </header>
+            <section class="modal-container-body rtf">
+                <span><strong>¿Quieres hacer crecer tu saldo fácilmente? ¡Es tu momento!</strong></span>
+                <p>Invita a tus amigos, colegas o familiares a unirse a GrowCap, y por cada persona que realice una inversión inicial mínima de $10,000 con un plazo de al menos 6 meses, te llevas $500 adicionales en tu saldo disponible dentro de la plataforma.</p>
+                <strong> <span>Es muy fácil:</span></strong>
+                <p>Comparte tu recomendación.</p>
+                <p>Ellos invierten, tú ganas.</p>
+                <p>¡Ambos hacen crecer sus oportunidades!</p>
+                <p>No esperes más, ¡convierte tus contactos en ganancias! El éxito también se comparte.</p>
+                <img src="https://clientes.growcap.mx/img/logo_ventana_inicio.png" alt="Logo" />
+            <strong><p>GrowCap: Invierte, Recomienda y Crece.</p></strong>
+            </section>
+            <footer class="modal-container-footer">
+                <a href="index3.html">
+                    <button class="button is-primary">Invitar</button>
+                </a>
+                    </footer>
+        </article>
+    </div>
+</body>
+</html>
